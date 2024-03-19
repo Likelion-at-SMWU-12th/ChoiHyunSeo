@@ -1,3 +1,7 @@
+alert("Welcome to hyeonseo info page!");
+confirm("Are you sure?");
+prompt("What your name?", "");
+
 const mainbox = document.getElementById("mainbox");
 function darkmode() {
     mainbox.style.backgroundColor = '#262626';
