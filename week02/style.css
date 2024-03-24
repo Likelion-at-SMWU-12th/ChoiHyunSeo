@@ -11,8 +11,9 @@ img {
 }
 
 h1 {
-    font-size: 3-px;
+    font-size: 30px;
     font-weight: bold;
+    text-align: center;
 }
 
 h2 {
@@ -52,7 +53,7 @@ a:hover {
     margin-right: auto;
     margin-left: auto;
     border: 1px solid #ebebeb;
-    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.5);
 }
 
 #schebox{
@@ -62,7 +63,8 @@ a:hover {
     margin-right: auto;
     margin-left: auto;
     border: 1px solid #ebebeb;
-    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
+    text-align: center;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.5);
 }
 
 table {
