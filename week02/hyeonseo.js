@@ -17,9 +17,19 @@ const schebox = document.getElementById("schebox");
 function schedarkmode() {
     schebox.style.backgroundColor = '#262626';
     schebox.style.color = 'white';
+    var table = document.getElementById('schedule');
+    var allCells = table.querySelectorAll('td, th'); // 테이블의 모든 셀(td)과 헤더(th)를 가져옵니다.
+    for (var i = 0; i < allCells.length; i++) {
+        allCells[i].style.borderColor = 'white'; // 각 셀과 헤더의 선 색을 하얀색으로 변경합니다.
+    }
 }
+
 function schelightmode() {
     schebox.style.backgroundColor = 'white';
     schebox.style.color = 'black';
-    h2.style.backgroundColor = 'cornsilk'
+    var table = document.getElementById('schedule');
+    var allCells = table.querySelectorAll('td, th'); // 테이블의 모든 셀(td)과 헤더(th)를 가져옵니다.
+    for (var i = 0; i < allCells.length; i++) {
+        allCells[i].style.borderColor = 'black'; // 각 셀과 헤더의 선 색을 하얀색으로 변경합니다.
+    }
 }
