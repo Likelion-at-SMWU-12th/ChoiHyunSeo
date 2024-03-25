@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Hi+Melody&family=Noto+Serif+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+Han+Sans&family=Nanum+Brush+Script&display=swap');
+
 * {
     font-family: "Noto Serif KR", serif;
 }
@@ -11,11 +14,13 @@ img {
 }
 
 h1 {
-    font-size: 3-px;
+    font-size: 30px;
     font-weight: bold;
+    text-align: center;
 }
 
 h2 {
+    font-family: "Bagel Fat One", system-ui;
     font-size: 20px;
     margin-top: 40px;
     background-color: rgba(255, 177, 75, 0.675);
@@ -52,5 +57,29 @@ a:hover {
     margin-right: auto;
     margin-left: auto;
     border: 1px solid #ebebeb;
-    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 20px 0 rgba(0,0,0,0.5);
+}
+
+#schebox{
+    width: 1000px;
+    padding: 30px;
+    margin: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid #ebebeb;
+    text-align: center;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.5);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 10px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+    width: 100px; 
+    box-sizing: border-box;
 }
