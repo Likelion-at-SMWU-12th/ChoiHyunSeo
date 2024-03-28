@@ -47,6 +47,7 @@ while True:
         print("최고 기온은", weather_info["main"]["temp_max"], "입니다.\n")
         print("기압은", weather_info["main"]["pressure"], "입니다.")
         print("습도는", weather_info["main"]["humidity"], "입니다.\n")
+        print("풍속는", weather_info["wind"]["speed"], "m/s 입니다.\n")
 
     else:
         print("해당 국가의 날씨 정보를 찾을 수 없습니다. 국가 이름을 다시 확인해주세요.")
