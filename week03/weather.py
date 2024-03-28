@@ -19,11 +19,11 @@ while True:
 
     if answer == 'y' or answer == "진행":
         print("----------------------------------------------------------------------")
-        print('날씨 검색기 프로그램이 실행됩니다.')
+        print('⭐️ 날씨 검색기 프로그램이 실행됩니다. ⭐️')
         break
     elif answer == 'n' or answer == "취소":
         print("----------------------------------------------------------------------")
-        print('날씨 검색기 프로그램이 종료됩니다.')
+        print("🚨 해당 서비스를 이용해주셔서 감사합니다. 프로그램을 종료합니다. 🚨")
         print("----------------------------------------------------------------------")
         exit()
     else:
@@ -33,13 +33,13 @@ while True:
     print("----------------------------------------------------------------------")
     city = input("🌡️  날씨를 알고 싶은 국가의 이름을 영어로 작성하여 주세요: ")
     print("----------------------------------------------------------------------")
-    print("🔮 %s 의 날씨 정보를 불러오고 있습니다... 잠시만 기다려주세요" % city)
+    print("💬 %s 의 날씨 정보를 불러오고 있습니다... 잠시만 기다려주세요 💬" % city)
     print("----------------------------------------------------------------------")
 
     weather_info = get_weather_info(city)
 
     if weather_info:
-        print("🌫️ ", weather_info["name"] + " 🌫️ 의 날씨입니다.\n")
+        print(">>> ", weather_info["name"] + " <<< 의 날씨입니다.\n")
         print("날씨는", weather_info["weather"][0]["description"], "입니다.\n")
         print("현재 온도는", weather_info["main"]["temp"], "입니다.")
         print("하지만 체감 온도는", weather_info["main"]["feels_like"], "입니다.\n")
@@ -47,7 +47,7 @@ while True:
         print("최고 기온은", weather_info["main"]["temp_max"], "입니다.\n")
         print("기압은", weather_info["main"]["pressure"], "입니다.")
         print("습도는", weather_info["main"]["humidity"], "입니다.\n")
-        print("풍속는", weather_info["wind"]["speed"], "m/s 입니다.\n")
+        print("풍속는", weather_info["wind"]["speed"], "m/s 입니다.")
 
     else:
         print("해당 국가의 날씨 정보를 찾을 수 없습니다. 국가 이름을 다시 확인해주세요.")
@@ -67,7 +67,7 @@ while True:
                 exit()
             else:
                 print("'y', '진행' 또는 'n', '취소'을 입력해주세요.")
-
+    print("----------------------------------------------------------------------")
     print("=== 다른 국가의 날씨를 추가로 검색하시겠습니까? ===")
     print('  y : 진행       n : 취소')
     answer = input('>>> ')
@@ -76,7 +76,7 @@ while True:
     if answer == 'y' or answer == "진행":
         pass
     elif answer == 'n' or answer == "취소":
-        print("해당 서비스를 이용해주셔서 감사합니다. 프로그램을 종료합니다.")
+        print("🚨 해당 서비스를 이용해주셔서 감사합니다. 프로그램을 종료합니다. 🚨")
         exit()
     else:
         exit()
