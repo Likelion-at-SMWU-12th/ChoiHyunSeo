@@ -64,7 +64,7 @@ while True:
                 if weather_info:
                     break
             elif retry_answer == 'n' or retry_answer == "종료":
-                print("해당 서비스를 이용해주셔서 감사합니다. 프로그램을 종료합니다.")
+                print("🚨 해당 서비스를 이용해주셔서 감사합니다. 프로그램을 종료합니다. 🚨")
                 exit()
             else:
                 print("'y', '진행' 또는 'n', '취소'을 입력해주세요.")
