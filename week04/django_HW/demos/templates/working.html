@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
-        <meata charset="UTF-8">
-        <meta name="viewport" content="width=divice-width", initial-scale="1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hyeonseo Info.</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Hi+Melody&family=Noto+Serif+KR&display=swap');
@@ -25,6 +25,7 @@
                 background-color: rgba(255, 197, 197, 0.675);
                 padding: 5px 0px 5px 5px;
             }
+
             input {
                 border: 1px solid #ccc;
                 padding:  10px 30px;
@@ -32,6 +33,7 @@
                 background-color: rgba(0,0,0,0);
                 cursor: pointer;
             }
+
             a {
                 text-decoration-line: none;
                 color: white;
@@ -42,20 +44,23 @@
                 font-weight: 500;
                 font-size: 15px;
             }
+
             a:hover {
                 text-align: center;
                 background-color: rgb(255, 183, 183);
                 color: black;
             }
 
-            #mainbox{
+            #mainbox {
                 width: 610px;
                 padding: 30px;
-                margin: 30px;
-                margin-right: auto;
-                margin-left: auto;
+                margin: 30px auto;
                 border: 1px solid #ebebeb;
                 box-shadow: 0 1px 20px 0 rgba(0,0,0,0.5);
+            }
+
+            .profileobox {
+                text-align: center;
             }
 
             .youtube {
@@ -68,9 +73,8 @@
             }
 
             .youlink {
-                margin-top: 30px; margin-bottom: 30px;
+                margin: 30px auto;
             }
-
 
         </style>
     </head>
@@ -81,9 +85,48 @@
             <section>
                 <div class="profileobox">
                     <h1>해당 페이지는<br/>2099년 12월 31일에 공개됩니다! 💬</h1>
-                    <h1>coming soon!</h1>
+                    <h2 id="countdown">coming soon!</h2>
                 </div> 
             </section>
         </div>
+
+        <script>
+            // 2099년 12월 31일까지의 한국 시간 기준 시간 계산
+            const countDownDate = new Date("December 31, 2099 00:00:00 GMT+0900").getTime();
+
+            // 1초마다 카운트다운 업데이트
+            const x = setInterval(function() {
+                // 현재 한국 시간 가져오기
+                const now = new Date().getTime();
+
+                // 남은 시간 계산
+                const distance = countDownDate - now;
+
+                // 일, 시간, 분, 초 계산
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // 연도 계산
+                const years = Math.floor(days / 365);
+                const remainingDays = days % 365;
+
+                // 카운트다운 표시
+                let countdownMessage = "";
+                if (years > 0) {
+                    countdownMessage += years + "년 ";
+                }
+                countdownMessage += remainingDays + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초 남음";
+
+                document.getElementById("countdown").innerHTML = countdownMessage;
+
+                // 카운트다운이 끝나면 메시지 표시
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "이제 곧 공개됩니다!";
+                }
+            }, 1000);
+        </script>
     </body>
 </html>
