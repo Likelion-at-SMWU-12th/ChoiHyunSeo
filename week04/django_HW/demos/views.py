@@ -7,3 +7,6 @@ def helloBabyLion(request):
 
 def myHobby(request):
     return render(request, 'hobby.html')
+
+def working(request):
+    return render(request, 'working.html')

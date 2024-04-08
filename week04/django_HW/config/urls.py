@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from demos.views import helloBabyLion
 from demos.views import myHobby
+from demos.views import working
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', helloBabyLion),
-    path('hobby/', myHobby)
+    path('hobby/', myHobby),
+    path('working/', working)
 ]
