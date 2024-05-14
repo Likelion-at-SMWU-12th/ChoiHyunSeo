@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="write_service.css">
+    <title>Write_service</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome~ Our Write Service^^</h1>
+        <form class="form" id="login-form">
+            <input class="input" required maxlength="15" type="text" placeholder="ID / Name">
+            <input class="input" required type="password" placeholder="초기 비밀번호는 1234 입니다.">
+            <button class="button">Log In</button>
+        </form>
+        
+        <h1 class="hidden" id="greeting"></h1>
+        <button class="hidden button" id="writePostBtn">글쓰기</button>
+        <form class="form hidden" id="postForm">
+            <textarea class="input" id="postContent" placeholder="글을 입력하세요" required></textarea>
+            <button class="button" type="submit">게시물 추가하기</button>
+        </form>
+        <div class="hidden" id="postsContainer">
+            <h2>게시글</h2>
+            <ul class="list" id="postsList"></ul>
+        </div>
+    </div>
+    <script src="write_service.js"></script>
+</body>
+</html>
