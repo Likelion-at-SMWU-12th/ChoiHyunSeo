@@ -1,0 +1,23 @@
+.lg-text {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#dynamic {
+    position: relative;
+    display: inline-block;
+}
+
+#dynamic::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    width: 2px;
+    height: 100%;
+    background-color: black;
+}
+
+#dynamic.active::after {
+    display: none;
+}
