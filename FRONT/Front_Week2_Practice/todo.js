@@ -21,3 +21,10 @@ function handleToDoSubmit(event) {
     toDoInput.value = "";
     paintToDo(newTodo)
 }
+
+function deleteToDo(event) {
+    const li = event.target.parentElement;
+    li.remove();
+}
+
+toDoForm.addEventListener("submit", handleToDoSubmit);
