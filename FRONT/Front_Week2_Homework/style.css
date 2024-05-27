@@ -173,10 +173,11 @@ button.complete-button {
 #todo-list li {
     list-style: none; 
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: space-between; 
     margin-top: 10px; 
-    font-size: 20px;
+    font-size: 18px;
+    color: #ff3399;
 }
 
 #todo-list li span {
