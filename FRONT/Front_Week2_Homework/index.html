@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyeonseo TODO.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="mainbox">
+        <section>
+            <div class="profileobox">
+                <img src="./img.jpg">
+                <h1>Hyeonseo</h1>
+                <h3 id="date">0000-00-00</h3>
+                <h3 id="clock">00:00:00</h3>
+                <p>주은짱,,, 시험공부가 너무 하기 싫어요,,,</p>
+            </div>
+            <p>=======================================</p>
+            <p id="dynamic" class="lg-text"></p>
+        </section>
+        <section>
+            <p>=======================================</p>
+            <a href="https://github.com/kittyismylife">🔗 Go Github</a>
+            <a href="https://blog.naver.com/chss0520">🔗 Go Blog</a>
+        </section>
+        <section>
+            <h2>🌷 ToDo List 🌷</h2>
+            <form id="todo-form" style="display: inline;">
+                <input type="text" placeholder="투두 항목 작성 후 엔터!" required style="width: 75%; margin-right: 10px;" />
+                <button type="submit">추가</button>
+            </form>
+            
+            <p id="todo-list"></p>
+        </section>
+        
+
+    </div>
+
+    <script src="clock.js"></script>
+    <script src="todo.js"></script>
+    <script src="typing.js"></script>
+
+</body>
+</html>
