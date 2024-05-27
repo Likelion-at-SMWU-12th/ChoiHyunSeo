@@ -16,6 +16,8 @@
                 <h3 id="clock">00:00:00</h3>
                 <p>주은짱,,, 시험공부가 너무 하기 싫어요,,,</p>
             </div>
+            <p>=======================================</p>
+            <p id="dynamic" class="lg-text"></p>
         </section>
         <section>
             <p>=======================================</p>
@@ -24,20 +26,17 @@
         </section>
         <section>
             <h2>🌷 ToDo List 🌷</h2>
-            <form id="todo-form">
-                <input type="text" placeholder="투두 항목 작성 후 엔터!" required />
+            <form id="todo-form" style="display: inline;">
+                <input type="text" placeholder="투두 항목 작성 후 엔터!" required style="width: 75%; margin-right: 10px;" />
+                <button type="submit">추가</button>
             </form>
-            <ul id="todo-list">[To-do List]</ul>
+            
+            <p id="todo-list"></p>
         </section>
+        
 
     </div>
 
-
-    <form id="todo-form">
-        <input type="text" placeholder="투두 항목 작성 후 엔터!" required />
-    </form>
-    <ul id="todo-list">[To-do List]</ul>
-    <p id="dynamic" class="lg-text"></p>
     <script src="clock.js"></script>
     <script src="todo.js"></script>
     <script src="typing.js"></script>
