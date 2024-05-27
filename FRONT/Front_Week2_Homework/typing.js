@@ -1,7 +1,7 @@
 let target = document.querySelector("#dynamic"); // ID가 "dynamic"인 요소 선택
 
 function randomString() {
-    let stringArr = ["고양이지대조아", "야옹이지대조아", "야옹이는먀앟...", "먀앟은고양이..."]; // 문자열 배열
+    let stringArr = ["현서의 페이지에 오신 것을 환영합니다", "발등에 운석 우두두 떨어지는 중", "주은짱 타이핑 기능 너무 멋잇어여 //"]; // 문자열 배열
     let selectString = stringArr[Math.floor(Math.random() * stringArr.length)]; // 배열에서 무작위로 하나의 문자열 선택
     let selectStringArr = selectString.split(""); // 선택된 문자열을 문자 배열로 분할
 
