@@ -66,3 +66,123 @@ h2 {
     background-color: rgb(255, 194, 217);
     padding: 5px 0px 5px 5px;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+/* index.html todo part style */
+#todo-form {
+    background-color: #ffe6f2;
+    padding: 20px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+#todo-form input[type="text"] {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border: 2px solid #ff66b2;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #333;
+    outline: none;
+}
+
+#todo-form input[type="text"]::placeholder {
+    color: #ff99cc;
+}
+
+#todo-form input[type="text"]:focus {
+    border-color: #ff3399; 
+}
+
+#todo-form button {
+    background-color: #ff66b2; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+#todo-form button:hover {
+    background-color: #ff3399;
+}
+
+#todo-form li {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+
+/* todo.js style */
+.completed span {
+    text-decoration: line-through;
+}
+
+button.delete-button {
+    background-color: #ffa899;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 4px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+button.edit-button {
+    background-color: #ffda95;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 4px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+button.complete-button {
+    background-color: #9aff9a;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+    margin-right: 4px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+#todo-list {
+    padding: 0;
+
+}
+
+#todo-list li {
+    list-style: none; 
+    display: flex;
+    align-items: left;
+    justify-content: space-between; 
+    margin-top: 10px; 
+    font-size: 20px;
+}
+
+#todo-list li span {
+    flex-grow: 1; 
+}
+
+#todo-list li button {
+    margin-left: 10px;
+}
