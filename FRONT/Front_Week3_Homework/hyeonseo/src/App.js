@@ -3,8 +3,8 @@ import Hello from "./Hello";
 
 function App() {
   return (
-    <div>
-      <h1>멋사 프론트 3주차</h1>
+    <div id="mainbox">
+      <h1>🪐 Welcome to My Space 🪐</h1>
       <Hello />
     </div>
   );
