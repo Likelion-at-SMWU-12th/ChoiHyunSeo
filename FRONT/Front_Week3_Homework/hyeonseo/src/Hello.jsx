@@ -1,12 +1,19 @@
 // input창에 이름을 입력했을 때, 존재하는 이름인지 확인하기 위하여 useState 추가
 import React, { useState } from "react";
 
-const Hello = () => {
+const Hello = ({ setShowOtherComponent }) => {
   const [name, setName] = useState("");
 
   // 입력 필드의 값이 변경될 때에 호출되어 상태를 업데이트
   const handleChange = (e) => {
-    setName(e.target.value);
+    const inputName = e.target.value;
+    setName(inputName);
+
+    if (inputName === "고양이지대조아") {
+      setShowOtherComponent(true);
+    } else {
+      setShowOtherComponent(false);
+    }
   };
 
   const containerStyle = {
@@ -27,18 +34,6 @@ const Hello = () => {
     boxShadow: "0 1px 10px #045fb4",
   };
 
-  const pStyle1 = {
-    fontSize: "20px",
-    color: "black",
-    borderRadius: "30px",
-  };
-
-  const pStyle2 = {
-    fontSize: "20px",
-    color: "black",
-    borderRadius: "30px",
-  };
-
   return (
     <div style={containerStyle}>
       <input
@@ -52,10 +47,11 @@ const Hello = () => {
       <>
         {name === "고양이지대조아" ? (
           <>
-            <p style={pStyle2}>조지냥! 야옹이의 페이지입니다!</p>
+            <br />
+            <h1>Welcome to the {name}'s Board!</h1>
           </>
         ) : (
-          <>고양이를 좋아하지 않는다면 출입할 수 없습니다!!</>
+          <>If you don't like cats, you can't enter!!</>
         )}
       </>
     </div>
