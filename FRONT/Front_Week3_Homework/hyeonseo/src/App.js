@@ -30,9 +30,11 @@ function App() {
       <Hello setShowOtherComponent={setShowOtherComponent} />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ flex: 1, marginRight: "30px" }}>
-          {showOtherComponent && <MySite />}
+          {showOtherComponent ? <MySite /> : null}
         </div>
-        <div style={{ flex: 1 }}>{showOtherComponent && <GuestBook />}</div>
+        <div style={{ flex: 1 }}>
+          {showOtherComponent ? <GuestBook /> : null}
+        </div>
       </div>
       {showOtherComponent && <Todo />}
       {showOtherComponent && <Secret />}
