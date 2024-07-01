@@ -5,8 +5,8 @@ const StyledICONImg = styled.img`
   padding: 6px 12px;
   border: 1.8px solid black;
   margin: 5px;
-  height: 150px;
-  width: 150px;
+  height: 80px;
+  width: 80px;
   border-radius: 20px;
   background-color: ${(props) => props.background || "#F6CECE"};
 `;
