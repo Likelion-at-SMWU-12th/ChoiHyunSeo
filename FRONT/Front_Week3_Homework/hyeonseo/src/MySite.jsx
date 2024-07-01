@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // import { Container } from "./MySite";
 
@@ -26,7 +26,7 @@ const ProName = styled.p`
   background: white;
   margin-bottom: 3px;
   color: #045fb4;
-  border: 2px solid #045fb4;
+  border: 2px dashed #045fb4;
   padding: 8px 25px;
   border-radius: 30px;
 `;
@@ -34,6 +34,34 @@ const ProName = styled.p`
 const ProSub = styled.p`
   font-size: 18px;
   margin-bottom: 0px;
+`;
+
+const ToDoForm = styled.form`
+  margin-bottom: 20px;
+`;
+
+const ToDoInput = styled.input`
+  padding: 10px;
+  margin-right: 10px;
+`;
+
+const ToDoList = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+const ToDoItem = styled.li`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  &.completed span {
+    text-decoration: line-through;
+  }
+
+  button {
+    margin-left: 10px;
+  }
 `;
 
 const MySite = () => {
