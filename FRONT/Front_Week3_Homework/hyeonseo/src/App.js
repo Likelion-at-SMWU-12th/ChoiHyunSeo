@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Hello from "./Hello";
 import Secret from "./Secret";
 import Else from "./Else";
+import MySite from "./MySite";
 
 function App() {
   const [showOtherComponent, setShowOtherComponent] = useState(false);
@@ -25,6 +26,7 @@ function App() {
     <div id="mainbox" style={mainBoxStyle}>
       <h1 style={headingStyle}>🪐 Welcome to My Space 🪐</h1>
       <Hello setShowOtherComponent={setShowOtherComponent} />
+      {showOtherComponent && <MySite />}
       {showOtherComponent && <Secret />}
       {showOtherComponent && <Else />}
     </div>
