@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Hello from "./Hello";
 import Secret from "./Secret";
+import Todo from "./Todo";
 import Else from "./Else";
 import MySite from "./MySite";
+import GuestBook from "./GuestBook";
 
 function App() {
   const [showOtherComponent, setShowOtherComponent] = useState(false);
@@ -26,7 +28,13 @@ function App() {
     <div id="mainbox" style={mainBoxStyle}>
       <h1 style={headingStyle}>🪐 Welcome to My Space 🪐</h1>
       <Hello setShowOtherComponent={setShowOtherComponent} />
-      {showOtherComponent && <MySite />}
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ flex: 1, marginRight: "30px" }}>
+          {showOtherComponent && <MySite />}
+        </div>
+        <div style={{ flex: 1 }}>{showOtherComponent && <GuestBook />}</div>
+      </div>
+      {showOtherComponent && <Todo />}
       {showOtherComponent && <Secret />}
       {showOtherComponent && <Else />}
     </div>
