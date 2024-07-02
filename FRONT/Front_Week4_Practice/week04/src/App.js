@@ -1,7 +1,8 @@
 import "./App.css";
+import Hello from "./Hello";
 
 function App() {
-  return <h3>LikeLion 12th FE 4주차</h3>;
+  return <Hello name="고양이지대조아" />;
 }
 
 export default App;
