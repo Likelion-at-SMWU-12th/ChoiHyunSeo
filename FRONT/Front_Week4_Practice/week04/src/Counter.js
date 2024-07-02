@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Counter = () => {
   const [state, setState] = useState(0);
+
+  useEffect(() => {
+    console.log("useEffect 실행!");
+  }, [state]);
   return (
     <div>
       <h1>State 값 : {state}</h1>
