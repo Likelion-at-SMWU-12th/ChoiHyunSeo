@@ -4,13 +4,13 @@ const Info = () => {
   const [name, setName] = useState("");
   const [nickname, setNickname] = useState("");
 
+  //   useEffect(() => {
+  //     console.log("마운트 될 때만 실행됩니다.!");
+  //   }, []);
+
   useEffect(() => {
-    console.log("렌더링이 완료되었습니다!");
-    console.log({
-      name,
-      nickname,
-    });
-  });
+    console.log(nickname);
+  }, [nickname]);
 
   const onChangeName = (e) => {
     setName(e.target.value);
