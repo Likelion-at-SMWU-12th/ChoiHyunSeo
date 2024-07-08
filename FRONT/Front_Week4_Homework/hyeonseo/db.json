@@ -4,47 +4,91 @@
       "id": 1,
       "name": "야옹이",
       "age": 2,
-      "breed": "시암",
-      "imageUrl": "/back.jpeg"
+      "scripts": "순하고 수염이 긴 야옹이",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat1.jpg"
     },
     {
       "id": 2,
       "name": "냥냥이",
       "age": 3,
-      "breed": "페르시안",
-      "imageUrl": ""
+      "scripts": "페르시안",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat2.jpg"
     },
-    { "id": 3, "name": "애옹이", "age": 1, "breed": "메인쿤", "imageUrl": "" },
+    {
+      "id": 3,
+      "name": "애옹이",
+      "age": 1,
+      "scripts": "메인쿤",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat3.jpg"
+    },
     {
       "id": 4,
       "name": "눈송이",
       "age": 4,
-      "breed": "터키시 앙고라",
-      "imageUrl": ""
+      "scripts": "터키시 앙고라",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat4.jpg"
     },
-    { "id": 5, "name": "꼬순이", "age": 2, "breed": "벵갈", "imageUrl": "" },
+    {
+      "id": 5,
+      "name": "꼬순이",
+      "age": 2,
+      "scripts": "벵갈",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat5.jpg"
+    },
     {
       "id": 6,
       "name": "먀앟",
       "age": 5,
-      "breed": "러시안 블루",
-      "imageUrl": ""
+      "scripts": "러시안 블루",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat6.jpg"
     },
     {
       "id": 7,
       "name": "나비",
       "age": 3,
-      "breed": "스코티시 폴드",
-      "imageUrl": ""
+      "scripts": "스코티시 폴드",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat7.jpg"
     },
     {
       "id": 8,
       "name": "해피",
       "age": 4,
-      "breed": "아메리칸 쇼트헤어",
-      "imageUrl": ""
+      "scripts": "아메리칸 쇼트헤어",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat8.jpg"
     },
-    { "id": 9, "name": "미미", "age": 1, "breed": "버마", "imageUrl": "" },
-    { "id": 10, "name": "키티", "age": 2, "breed": "스핑크스", "imageUrl": "" }
+    {
+      "id": 9,
+      "name": "미미",
+      "age": 1,
+      "scripts": "버마",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat9.jpg"
+    },
+    {
+      "id": 10,
+      "name": "키티",
+      "age": 2,
+      "scripts": "스핑크스",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat10.jpg"
+    }
   ]
 }
