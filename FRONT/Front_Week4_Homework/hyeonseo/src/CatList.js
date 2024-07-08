@@ -40,11 +40,15 @@ const CatList = () => {
       </div>
       <ul>
         {filteredCats.map((cat) => (
-          <li key={cat.id}>
+          <li key={cat.id} className="cat-item">
+            <div className="cat-info">
+              <h2>{cat.name}</h2>
+              <p>추정 나이: {cat.age}</p>
+              <p>등록 날짜: {cat.when}</p>
+              <p>설명: {cat.scripts}</p>
+              <p>입양 여부: {cat.adopt}</p>
+            </div>
             <img src={cat.imageUrl} alt={cat.name} className="cat-image" />
-            <h2>{cat.name}</h2>
-            <p>나이: {cat.age}</p>
-            <p>품종: {cat.breed}</p>
           </li>
         ))}
       </ul>
