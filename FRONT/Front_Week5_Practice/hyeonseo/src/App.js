@@ -42,7 +42,8 @@ function App() {
   ]);
 
   const nextId = useRef(4);
-  const onCreate = () => {
+
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
@@ -56,20 +57,26 @@ function App() {
     });
     // 추가할 때마다 다음 배열에 추가함
     nextId.current += 1;
-  };
+  }, [username, email]);
 
-  const onRemove = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
-  };
+  const onRemove = useCallback(
+    (id) => {
+      setUsers(users.filter((user) => user.id !== id));
+    },
+    [users]
+  );
 
   // 활성화가 되었는지, 아닌지 알아보기 위한 함수
-  const onToggle = (id) => {
-    setUsers(
-      users.map((user) =>
-        user.id === id ? { ...user, active: !user.active } : user
-      )
-    );
-  };
+  const onToggle = useCallback(
+    (id) => {
+      setUsers(
+        users.map((user) =>
+          user.id === id ? { ...user, active: !user.active } : user
+        )
+      );
+    },
+    [users]
+  );
 
   return (
     <>
