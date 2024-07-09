@@ -1,5 +1,4 @@
-import "./App.css";
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 // import InputSample from "./InputSample";
 import UserList from "./UserList";
 import CreateUser from "./CreateUser";
@@ -9,14 +8,37 @@ function App() {
 
   const { username, email } = inputs;
 
-  const onChange = (e) => {
-    const { value, name } = e.target;
-    setInputs({ ...inputs, [name]: value });
-  };
+  const onChange = useCallback(
+    (e) => {
+      const { value, name } = e.target;
+      setInputs({ ...inputs, [name]: value });
+    },
+    [inputs]
+  );
+
+  // const onChange = (e) => {
+  //   const { value, name } = e.target;
+  //   setInputs({ ...inputs, [name]: value });
+  // };
   const [users, setUsers] = useState([
-    { id: 1, username: "sookmyung", email: "sookmyung@example.com" },
-    { id: 2, username: "mutsa", email: "likelionsmwu@example.com" },
-    { id: 3, username: "hyeonseo", email: "chss0520@sookmyung.com" },
+    {
+      id: 1,
+      username: "sookmyung",
+      email: "sookmyung@example.com",
+      active: true,
+    },
+    {
+      id: 2,
+      username: "mutsa",
+      email: "likelionsmwu@example.com",
+      active: false,
+    },
+    {
+      id: 3,
+      username: "hyeonseo",
+      email: "chss0520@sookmyung.com",
+      active: false,
+    },
   ]);
 
   const nextId = useRef(4);
@@ -35,6 +57,20 @@ function App() {
     // 추가할 때마다 다음 배열에 추가함
     nextId.current += 1;
   };
+
+  const onRemove = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
+  // 활성화가 되었는지, 아닌지 알아보기 위한 함수
+  const onToggle = (id) => {
+    setUsers(
+      users.map((user) =>
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
+  };
+
   return (
     <>
       <CreateUser
@@ -45,7 +81,7 @@ function App() {
       />
       <br />
       <hr />
-      <UserList users={users} />
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
     </>
   );
 }
