@@ -1,7 +1,8 @@
 import "./App.css";
+import InputSample from "./InputSample";
 
 function App() {
-  return <div>멋사 프론트 5주차</div>;
+  return <InputSample />;
 }
 
 export default App;

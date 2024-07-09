@@ -16,6 +16,7 @@ const InputSample = () => {
     });
   };
 
+  // 입력된 후 초기화 되기 위한 기능
   const onReset = () =>
     setInputs({
       name: "",
@@ -26,7 +27,7 @@ const InputSample = () => {
       <input
         name="name"
         placeholder="이름"
-        onClick={onChange}
+        onChange={onChange}
         value={name}
       ></input>
       <input
