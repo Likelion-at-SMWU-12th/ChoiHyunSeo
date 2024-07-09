@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useRef, useState } from "react";
-import InputSample from "./InputSample";
+// import InputSample from "./InputSample";
 import UserList from "./UserList";
 import CreateUser from "./CreateUser";
 
@@ -32,6 +32,7 @@ function App() {
       username: "",
       email: "",
     });
+    // 추가할 때마다 다음 배열에 추가함
     nextId.current += 1;
   };
   return (
