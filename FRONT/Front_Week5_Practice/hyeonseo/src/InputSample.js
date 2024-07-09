@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const InputSample = () => {
   const [inputs, setInputs] = useState({
     name: "",
     nickname: "",
   });
+  const nameInput = useRef();
 
   const { name, nickname } = inputs;
 
@@ -16,18 +17,23 @@ const InputSample = () => {
     });
   };
 
-  const onReset = () =>
+  // 입력된 후 초기화 되기 위한 기능
+  const onReset = () => {
     setInputs({
       name: "",
       nickname: "",
     });
+    nameInput.current.focus();
+  };
+
   return (
     <div>
       <input
         name="name"
         placeholder="이름"
-        onClick={onChange}
+        onChange={onChange}
         value={name}
+        ref={nameInput}
       ></input>
       <input
         name="nickname"
