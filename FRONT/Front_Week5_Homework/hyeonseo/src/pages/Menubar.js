@@ -14,22 +14,22 @@ const Menubar = () => {
           </li>
           <li>
             <Link to="/week01" className="menu-link">
-              Introduce
+              Week01
             </Link>
           </li>{" "}
           <li>
             <Link to="/week02" className="menu-link">
-              Introduce
+              Week02
             </Link>
           </li>{" "}
           <li>
             <Link to="/week03" className="menu-link">
-              Introduce
+              Week03
             </Link>
           </li>{" "}
           <li>
             <Link to="/week04" className="menu-link">
-              Introduce
+              Week04
             </Link>
           </li>
         </ul>
