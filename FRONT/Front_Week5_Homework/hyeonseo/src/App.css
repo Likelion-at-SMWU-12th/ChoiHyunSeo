@@ -1,6 +1,5 @@
 body {
   background-image: url("./img/background_5.png");
-  /* 다른 배경 속성들을 필요에 따라 추가할 수 있습니다 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -6,13 +6,17 @@ import Menubar from "./pages/Menubar";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Early />} />
-
-      <Route path="/" element={<Menubar />}>
-        <Route path="/home" element={<Home />} />
-      </Route>
-    </Routes>
+    <>
+      <Menubar />
+      <Routes>
+        <Route path="/" element={<Early />} />
+        <Route path="home" element={<Home />} />
+        {/* <Route path="week01" element={<Week01 />} />
+        <Route path="week02" element={<Week02 />} />
+        <Route path="week03" element={<Week03 />} />
+        <Route path="week04" element={<Week04 />} /> */}
+      </Routes>
+    </>
   );
 }
 

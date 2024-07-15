@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Early.css";
 
 function Early() {
   const [name, setName] = useState("");
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.removeItem("name");
+    console.log("접속되었습니다.");
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +22,7 @@ function Early() {
       <h2 className="alt1">Welcome to Meow World!</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Name:&nbsp;&nbsp;
+          Nickname:&nbsp;&nbsp;
           <input
             className="input_info"
             type="text"

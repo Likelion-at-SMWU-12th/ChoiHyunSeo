@@ -1,6 +1,11 @@
 .menubar {
-  display: flex;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(204, 153, 204, 0.9);
+  color: #fff;
+  padding: 30px 20px;
 }
 
 .menu-list {
@@ -11,10 +16,11 @@
 }
 
 .menu-list li {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .menu-link {
+  font-size: 20px;
   color: white;
   font-weight: bold;
   text-decoration: none;
