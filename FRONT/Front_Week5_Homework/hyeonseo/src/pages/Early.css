@@ -9,22 +9,24 @@ body {
 }
 
 .show_main {
-  padding: 80px;
+  padding: 40px 80px;
   border-radius: 40px;
   background-color: rgba(99, 0, 0, 0.2);
 }
 
 .alt1 {
+  margin-bottom: 60px;
   font-size: 40px;
   font-weight: bolder;
   color: white;
 }
 
 .buttonGo {
+  margin-top: 40px;
   border: 0;
   font-size: 20px;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 15px 20px;
   text-decoration: none;
   color: white;
   background-color: #ff9999;
@@ -33,5 +35,24 @@ body {
 
 .buttonGo:hover {
   color: #ff6b6b;
+  background-color: white;
+}
+
+label {
+  border: 0;
+  font-size: 18px;
+  border-radius: 20px;
+  padding: 13px 20px;
+  text-decoration: none;
+  color: #ff9999;
+  background-color: white;
+}
+
+.input_info {
+  border: 0;
+  font-size: 15px;
+  border-radius: 20px;
+  padding: 5px 3px;
+  color: #ff9999;
   background-color: white;
 }
