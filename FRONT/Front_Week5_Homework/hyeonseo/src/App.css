@@ -1,29 +1,7 @@
 body {
-  background-color: #001f3f;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.alt1 {
-  font-size: 40px;
-  font-weight: bolder;
-  color: #87ceeb;
-}
-
-.buttonGo {
-  border: 0;
-  font-size: 20px;
-  border-radius: 20px;
-  padding: 10px 20px;
-  color: #001f3f;
-  transition: color 0.3s ease, background-color 0.6s ease;
-}
-
-.buttonGo:hover {
-  color: white;
-  background-color: rgb(80, 173, 255);
+  background-image: url("./img/background_5.png");
+  /* 다른 배경 속성들을 필요에 따라 추가할 수 있습니다 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
