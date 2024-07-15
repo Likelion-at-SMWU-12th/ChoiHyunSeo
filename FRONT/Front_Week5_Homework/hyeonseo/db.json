@@ -1,0 +1,94 @@
+{
+  "cats": [
+    {
+      "id": 1,
+      "name": "야옹이",
+      "age": 2,
+      "scripts": "순하고 수염이 긴 야옹이",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "냥냥이",
+      "age": 3,
+      "scripts": "츄르를 좋아하는 냥냥이",
+      "when": "2024-05-08",
+      "adopt": "입양 절차 수속 중",
+      "imageUrl": "/images/cat2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "애옹이",
+      "age": 1,
+      "scripts": "보호자 품에서 자는 걸 좋아해요",
+      "when": "2024-06-23",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "눈송이 / 밤송이",
+      "age": 4,
+      "scripts": "둘이 붙어있을 때에 안정감을 많이 느껴요",
+      "when": "2024-04-23",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "꼬순이",
+      "age": 2,
+      "scripts": "낮이든 밤이든 보호자를 계속 찾아요!",
+      "when": "2024-07-03",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "먀앟",
+      "age": 5,
+      "scripts": "푹신한 이불 속에서 자는 것을 좋아해요",
+      "when": "2024-07-01",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "나비",
+      "age": 3,
+      "scripts": "초롱초롱한 눈망울이 매력적이에요",
+      "when": "2024-07-08",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "해피",
+      "age": 4,
+      "scripts": "만사가 귀찮아보이지만 매우 활동적이에요",
+      "when": "2024-06-23",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat8.jpg"
+    },
+    {
+      "id": 9,
+      "name": "미미",
+      "age": 1,
+      "scripts": "미미가 보이지 않는다면, 높은 곳을 살펴보세요!",
+      "when": "2024-06-26",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat9.jpg"
+    },
+    {
+      "id": 10,
+      "name": "키티",
+      "age": 2,
+      "scripts": "소심하지만 키티는 참지 않아요!",
+      "when": "2024-07-03",
+      "adopt": "입양 전",
+      "imageUrl": "/images/cat10.jpg"
+    }
+  ]
+}
