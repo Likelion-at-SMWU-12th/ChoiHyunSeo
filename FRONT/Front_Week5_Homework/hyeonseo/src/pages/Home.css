@@ -11,8 +11,11 @@
   border-radius: 40px;
   background-color: rgba(255, 86, 86, 0.2);
 }
-p {
-  font-size: 15px;
+.mainp {
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 a {
@@ -27,4 +30,11 @@ a:hover {
 img {
   width: 150px;
   border-radius: 100%;
+  margin-bottom: 20px;
+}
+
+.homeh2 {
+  color: rgb(21, 0, 0);
+  margin: 16px 0;
+  padding: 0;
 }

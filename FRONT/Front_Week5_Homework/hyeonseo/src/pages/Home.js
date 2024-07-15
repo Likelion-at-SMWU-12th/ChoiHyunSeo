@@ -18,14 +18,14 @@ function Home() {
   return (
     <>
       <div className="show_box">
-        <h2>{Nickname}님의 방문을 환영합니다!</h2>
+        <h2 className="homeh2">{Nickname}님의 방문을 환영합니다!</h2>
       </div>
       <div className="introduce">
-        <h2>✌🏻현서를 소개합니다✌🏻</h2>
+        <h2 className="homeh2">✌🏻현서를 소개합니다✌🏻</h2>
         <img src="./img/pro.png" alt="프로필 이미지" />
-        <p>이름: 최현서</p>
-        <p>나이: 2002년생</p>
-        <p>
+        <p className="mainp">이름: 최현서</p>
+        <p className="mainp">나이: 2002년생</p>
+        <p className="mainp">
           깃허브 주소:&nbsp;
           <a href="https://github.com/kittyismylife">kittyismylife</a>
         </p>
