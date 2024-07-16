@@ -104,13 +104,12 @@ export default DetailPage;
 const Wrapper = styled.div`
   margin-top: 20px;
 `;
-
 const DetailWrapper = styled.div`
-  width: calc(100% - 200px);
+  width: calc(100% - 80px);
   height: fit-content;
   background-color: white;
   border-radius: 20px;
-  padding: 100px;
+  padding: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   margin-top: 50px;
   display: flex;
@@ -118,40 +117,50 @@ const DetailWrapper = styled.div`
   justify-content: center;
   text-align: center;
 `;
-
 const DetailDiv = styled.div``;
-
 const Author = styled.div`
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 700;
 `;
-
 const Time = styled.div`
   color: #c8c8c8;
   font-weight: 600;
-  font-size: 30px;
+  margin-top: 15px;
+  font-size: 15px;
 `;
-
 const Comment = styled.div`
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 700;
   margin: 50px 0;
 `;
-
 const AuthorEdit = styled.input`
+  border: 0;
+  border-radius: 30px;
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 700;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.727);
+  &:focus {
+    outline: none; /* 포커스 시 outline 제거 */
+  }
 `;
-
 const CommentEdit = styled.textarea`
+  border: 0;
+  border-radius: 20px;
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.727);
+
+  &:focus {
+    outline: none; /* 포커스 시 outline 제거 */
+  }
+  text-align: center;
+  font-size: 20px;
   font-weight: 700;
   margin: 50px 0;
   resize: vertical;
 `;
-
 const BtnLine = styled.div`
   display: flex;
   justify-content: center;
