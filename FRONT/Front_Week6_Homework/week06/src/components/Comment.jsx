@@ -47,6 +47,7 @@ const Comment = () => {
 export default Comment;
 
 const CommentBox = styled.div`
+  transition: background-color 0.3s ease;
   width: 100%;
   height: 100px;
   margin-bottom: 50px;
