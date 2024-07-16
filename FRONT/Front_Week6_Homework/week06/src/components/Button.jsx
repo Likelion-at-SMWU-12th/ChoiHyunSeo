@@ -20,6 +20,7 @@ const ButtonBox = styled.button`
   font-weight: 700;
   cursor: pointer;
   font-size: ${(props) => props.fontSize || "20px"};
+  transition: background-color 0.3s ease;
   &:hover {
     background-color: #f0873e;
   }

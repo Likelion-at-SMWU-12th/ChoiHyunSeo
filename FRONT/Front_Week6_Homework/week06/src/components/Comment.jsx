@@ -54,6 +54,7 @@ const CommentBox = styled.div`
   border-radius: 20px;
   padding: 50px;
   background-color: white;
+  transition: background-color 0.3s ease;
   &:hover {
     cursor: pointer;
     color: #f0873e;
