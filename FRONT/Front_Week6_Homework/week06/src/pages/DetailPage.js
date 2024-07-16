@@ -134,6 +134,7 @@ const Comment = styled.div`
   margin: 50px 0;
 `;
 const AuthorEdit = styled.input`
+  padding: 10px;
   border: 0;
   border-radius: 30px;
   text-align: center;
@@ -145,6 +146,7 @@ const AuthorEdit = styled.input`
   }
 `;
 const CommentEdit = styled.textarea`
+  padding: 10px;
   border: 0;
   border-radius: 20px;
   text-align: center;
