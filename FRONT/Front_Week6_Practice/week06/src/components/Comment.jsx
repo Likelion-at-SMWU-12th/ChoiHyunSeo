@@ -53,6 +53,7 @@ const Comment = () => {
   return (
     <>
       {dummy.map((comment) => (
+        // navigate를 사용하면 로컬에서 넘어가는 것
         <CommentBox onClick={() => navigate(`/comment/${comment.id}`)}>
           <Author>{comment.author}</Author>
           <Time>{comment.timestamp}</Time>
