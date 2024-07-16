@@ -9,6 +9,8 @@ const DetailPage = () => {
   const { id } = useParams();
   //   console.log(id);
   const [detail, setDetail] = useState([]);
+  // 수정 기능 판별? 수정 상태를 담고 있을 state
+  const [editing, setEditing] = useState(false);
 
   const getDetail = () => {
     axios
@@ -16,6 +18,38 @@ const DetailPage = () => {
       .then((response) => {
         console.log(response);
         setDetail(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const onDelete = () => {
+    axios
+      .delete(`http://127.0.0.1:8000/entries/${id}/`)
+      .then((response) => {
+        console.log(response);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const onEdit = () => {
+    // 수정 모드로 인식하기
+    setEditing(true);
+    console.log("수정 모드 on");
+  };
+
+  const onEditSave = () => {
+    axios
+      .put(`http://127.0.0.1:8000/entries/${id}/`, detail)
+      .then((response) => {
+        console.log(response);
+        setEditing(false);
+        console.log("수정 모드 off");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -32,13 +66,35 @@ const DetailPage = () => {
       <Button txt={"방명록 작성하기"} onBtnClick={() => navigate("/write")} />
       <DetailWrapper>
         <DetailDiv>
-          <Author>{detail.author}</Author>
-          <Time>{detail.timestamp}</Time>
-          <Comment>{detail.comment}</Comment>
-          <BtnLine>
-            <Button txt={"수정"} fontSize={"30px"} />
-            <Button txt={"삭제"} fontSize={"30px"} />
-          </BtnLine>
+          {editing ? (
+            // 수정 모드일 경우 (input/areatext로 변경)
+            <>
+              {" "}
+              <AuthorEdit placeholder={detail.author}></AuthorEdit>
+              <Time>{detail.timestamp}</Time>
+              <CommentEdit placeholder={detail.comment}></CommentEdit>
+              <BtnLine>
+                <Button
+                  txt={"수정 저장하기"}
+                  fontSize={"30px"}
+                  onBtnClick={onEditSave}
+                />
+                <Button txt={"삭제"} fontSize={"30px"} onBtnClick={onDelete} />
+              </BtnLine>
+            </>
+          ) : (
+            // 수정 모드가 아닌 경우 (원래 정보 출력)
+            <>
+              {" "}
+              <Author>{detail.author}</Author>
+              <Time>{detail.timestamp}</Time>
+              <Comment>{detail.comment}</Comment>
+              <BtnLine>
+                <Button txt={"수정"} fontSize={"30px"} onBtnClick={onEdit} />
+                <Button txt={"삭제"} fontSize={"30px"} onBtnClick={onDelete} />
+              </BtnLine>
+            </>
+          )}
         </DetailDiv>
       </DetailWrapper>
     </Wrapper>
@@ -77,6 +133,19 @@ const Comment = styled.div`
   font-size: 40px;
   font-weight: 700;
   margin: 50px 0;
+`;
+const AuthorEdit = styled.input`
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+`;
+
+const CommentEdit = styled.textarea`
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 50px 0;
+  resize: vertical;
 `;
 const BtnLine = styled.div`
   display: flex;

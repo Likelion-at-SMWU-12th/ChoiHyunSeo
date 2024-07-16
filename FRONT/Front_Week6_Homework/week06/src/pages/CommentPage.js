@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 const CommentWrapper = styled.div`
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(3, 21vw);
+  grid-template-columns: repeat(3, 20vw);
   justify-content: space-between;
   padding: 0 100px 0 0;
 `;
