@@ -7,16 +7,13 @@ import axios from "axios";
 const DetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  //   console.log(id);
-  const [detail, setDetail] = useState([]);
-  // 수정 기능 판별? 수정 상태를 담고 있을 state
-  const [editing, setEditing] = useState(false);
+  const [detail, setDetail] = useState({});
+  const [editing, setEditing] = useState(false); // 수정 모드 여부를 boolean 값으로 설정
 
   const getDetail = () => {
     axios
       .get(`http://127.0.0.1:8000/entries/${id}/`)
       .then((response) => {
-        console.log(response);
         setDetail(response.data);
       })
       .catch((error) => {
@@ -28,7 +25,6 @@ const DetailPage = () => {
     axios
       .delete(`http://127.0.0.1:8000/entries/${id}/`)
       .then((response) => {
-        console.log(response);
         navigate("/");
       })
       .catch((error) => {
@@ -37,18 +33,14 @@ const DetailPage = () => {
   };
 
   const onEdit = () => {
-    // 수정 모드로 인식하기
-    setEditing(true);
-    console.log("수정 모드 on");
+    setEditing(true); // 수정 모드로 변경
   };
 
   const onEditSave = () => {
     axios
       .put(`http://127.0.0.1:8000/entries/${id}/`, detail)
       .then((response) => {
-        console.log(response);
-        setEditing(false);
-        console.log("수정 모드 off");
+        setEditing(false); // 수정 모드 종료
         navigate("/");
       })
       .catch((error) => {
@@ -67,12 +59,20 @@ const DetailPage = () => {
       <DetailWrapper>
         <DetailDiv>
           {editing ? (
-            // 수정 모드일 경우 (input/areatext로 변경)
             <>
-              {" "}
-              <AuthorEdit placeholder={detail.author}></AuthorEdit>
+              <AuthorEdit
+                value={detail.author}
+                onChange={(e) =>
+                  setDetail({ ...detail, author: e.target.value })
+                }
+              />
               <Time>{detail.timestamp}</Time>
-              <CommentEdit placeholder={detail.comment}></CommentEdit>
+              <CommentEdit
+                value={detail.comment}
+                onChange={(e) =>
+                  setDetail({ ...detail, comment: e.target.value })
+                }
+              />
               <BtnLine>
                 <Button
                   txt={"수정 저장하기"}
@@ -83,9 +83,7 @@ const DetailPage = () => {
               </BtnLine>
             </>
           ) : (
-            // 수정 모드가 아닌 경우 (원래 정보 출력)
             <>
-              {" "}
               <Author>{detail.author}</Author>
               <Time>{detail.timestamp}</Time>
               <Comment>{detail.comment}</Comment>
@@ -106,6 +104,7 @@ export default DetailPage;
 const Wrapper = styled.div`
   margin-top: 20px;
 `;
+
 const DetailWrapper = styled.div`
   width: calc(100% - 200px);
   height: fit-content;
@@ -119,21 +118,26 @@ const DetailWrapper = styled.div`
   justify-content: center;
   text-align: center;
 `;
+
 const DetailDiv = styled.div``;
+
 const Author = styled.div`
   font-size: 50px;
   font-weight: 700;
 `;
+
 const Time = styled.div`
   color: #c8c8c8;
   font-weight: 600;
   font-size: 30px;
 `;
+
 const Comment = styled.div`
   font-size: 40px;
   font-weight: 700;
   margin: 50px 0;
 `;
+
 const AuthorEdit = styled.input`
   text-align: center;
   font-size: 50px;
@@ -147,6 +151,7 @@ const CommentEdit = styled.textarea`
   margin: 50px 0;
   resize: vertical;
 `;
+
 const BtnLine = styled.div`
   display: flex;
   justify-content: center;
