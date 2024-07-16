@@ -41,11 +41,15 @@ const DetailPage = () => {
       .put(`http://127.0.0.1:8000/entries/${id}/`, detail)
       .then((response) => {
         setEditing(false); // 수정 모드 종료
-        navigate("/");
+        navigate();
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const goHome = () => {
+    navigate("/");
   };
 
   useEffect(() => {
@@ -76,10 +80,15 @@ const DetailPage = () => {
               <BtnLine>
                 <Button
                   txt={"수정 저장하기"}
-                  fontSize={"30px"}
+                  fontSize={"20px"}
                   onBtnClick={onEditSave}
                 />
-                <Button txt={"삭제"} fontSize={"30px"} onBtnClick={onDelete} />
+                <Button txt={"삭제"} fontSize={"20px"} onBtnClick={onDelete} />{" "}
+                <Button
+                  txt={"돌아가기"}
+                  fontSize={"20px"}
+                  onBtnClick={goHome}
+                />
               </BtnLine>
             </>
           ) : (
@@ -88,8 +97,13 @@ const DetailPage = () => {
               <Time>{detail.timestamp}</Time>
               <Comment>{detail.comment}</Comment>
               <BtnLine>
-                <Button txt={"수정"} fontSize={"30px"} onBtnClick={onEdit} />
-                <Button txt={"삭제"} fontSize={"30px"} onBtnClick={onDelete} />
+                <Button txt={"수정"} fontSize={"20px"} onBtnClick={onEdit} />
+                <Button txt={"삭제"} fontSize={"20px"} onBtnClick={onDelete} />
+                <Button
+                  txt={"돌아가기"}
+                  fontSize={"20px"}
+                  onBtnClick={goHome}
+                />
               </BtnLine>
             </>
           )}
