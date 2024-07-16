@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 const DetailPage = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  //   console.log(id);
+  const [detail, setDetail] = useState([]);
+
+  const getDetail = () => {
+    axios
+      .get(`http://127.0.0.1:8000/entries/${id}/`)
+      .then((response) => {
+        console.log(response);
+        setDetail(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getDetail();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <Wrapper>
       <Button txt={"방명록 작성하기"} onBtnClick={() => navigate("/write")} />
       <DetailWrapper>
         <DetailDiv>
-          <Author>이예지</Author>
-          <Time>2024-06-28T12:34:56Z</Time>
-          <Comment>하이</Comment>
+          <Author>{detail.author}</Author>
+          <Time>{detail.timestamp}</Time>
+          <Comment>{detail.comment}</Comment>
           <BtnLine>
             <Button txt={"수정"} fontSize={"30px"} />
             <Button txt={"삭제"} fontSize={"30px"} />
