@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
-// import ImageButton from "../components/ImageButton";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -13,6 +12,7 @@ const DetailPage = () => {
   const [pictures, setPictures] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // 사진 선택 시 처리 함수
   const handlePictureChange = (event) => {
     const files = Array.from(event.target.files);
     const newPictures = files.map((file) => URL.createObjectURL(file));
@@ -20,29 +20,40 @@ const DetailPage = () => {
     setCurrentIndex(0); // 처음 사진으로 초기화
   };
 
+  // 이전 사진 보기 처리 함수
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex > 0 ? prevIndex - 1 : pictures.length - 1
     );
   };
 
+  // 다음 사진 보기 처리 함수
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex < pictures.length - 1 ? prevIndex + 1 : 0
     );
   };
 
+  // 방명록 데이터 가져오기
   const getDetail = () => {
     axios
       .get(`http://127.0.0.1:8000/entries/${id}/`)
       .then((response) => {
         setDetail(response.data);
+        // 기존 사진 정보를 불러와서 설정
+        if (response.data.pictures) {
+          const existingPictures = response.data.pictures.map(
+            (pictureUrl) => `${axios.defaults.baseURL}${pictureUrl}`
+          );
+          setPictures(existingPictures);
+        }
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
+  // 삭제 처리 함수
   const onDelete = () => {
     axios
       .delete(`http://127.0.0.1:8000/entries/${id}/`)
@@ -54,10 +65,12 @@ const DetailPage = () => {
       });
   };
 
+  // 수정 모드로 전환 처리 함수
   const onEdit = () => {
     setEditing(true); // 수정 모드로 변경
   };
 
+  // 수정 내용 저장 처리 함수
   const onEditSave = () => {
     axios
       .put(`http://127.0.0.1:8000/entries/${id}/`, detail)
@@ -70,14 +83,16 @@ const DetailPage = () => {
       });
   };
 
+  // 홈으로 돌아가기 처리 함수
   const goHome = () => {
     navigate("/");
   };
 
+  // 페이지 로드 시 한 번만 방명록 데이터 가져오기
   useEffect(() => {
     getDetail();
-    // eslint-disable-next-line
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return (
     <Wrapper>
@@ -122,12 +137,6 @@ const DetailPage = () => {
                 }
               />
               <BtnLine>
-                {" "}
-                {/* <ImageButton
-                  txt={"사진 추가하기"}
-                  fontSize={"20px"}
-                  onBtnClick={setSelectPicture}
-                /> */}
                 <Button
                   txt={"수정 저장하기"}
                   fontSize={"20px"}
@@ -168,6 +177,7 @@ export default DetailPage;
 const Wrapper = styled.div`
   margin-top: 20px;
 `;
+
 const DetailWrapper = styled.div`
   width: calc(100% - 80px);
   height: fit-content;
@@ -181,22 +191,27 @@ const DetailWrapper = styled.div`
   justify-content: center;
   text-align: center;
 `;
+
 const DetailDiv = styled.div``;
+
 const Author = styled.div`
   font-size: 30px;
   font-weight: 700;
 `;
+
 const Time = styled.div`
   color: #c8c8c8;
   font-weight: 600;
   margin-top: 15px;
   font-size: 15px;
 `;
+
 const Comment = styled.div`
   font-size: 20px;
   font-weight: 700;
   margin: 50px 0;
 `;
+
 const AuthorEdit = styled.input`
   padding: 10px;
   border: 0;
@@ -206,27 +221,25 @@ const AuthorEdit = styled.input`
   font-weight: 700;
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.727);
   &:focus {
-    outline: none; /* 포커스 시 outline 제거 */
+    outline: none;
   }
 `;
+
 const CommentEdit = styled.textarea`
   padding: 10px;
   border: 0;
   border-radius: 20px;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 700;
-  box-shadow: 0 0 10px rgba(128, 128, 128, 0.727);
-  &:focus {
-    outline: none; /* 포커스 시 outline 제거 */
-  }
   text-align: center;
   font-size: 20px;
   font-weight: 700;
   margin: 50px 0;
   resize: vertical;
   height: auto;
+  &:focus {
+    outline: none;
+  }
 `;
+
 const BtnLine = styled.div`
   display: flex;
   justify-content: center;
