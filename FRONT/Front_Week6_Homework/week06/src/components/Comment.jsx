@@ -38,6 +38,7 @@ const Comment = () => {
           <Author>{comment.author}</Author>
           <Time>{comment.timestamp}</Time>
           <CommentTxt>{comment.comment}</CommentTxt>
+          <ImagePreview>{comment.picture}</ImagePreview>
         </CommentBox>
       ))}
     </>
@@ -83,4 +84,9 @@ const CommentTxt = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
+`;
+
+const ImagePreview = styled.img`
+  width: 100px;
+  text-align: center;
 `;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
+// import ImageButton from "../components/ImageButton";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -8,7 +9,28 @@ const DetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [detail, setDetail] = useState({});
-  const [editing, setEditing] = useState(false); // 수정 모드 여부를 boolean 값으로 설정
+  const [editing, setEditing] = useState(false); // 수정 모드 상태 저장
+  const [pictures, setPictures] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePictureChange = (event) => {
+    const files = Array.from(event.target.files);
+    const newPictures = files.map((file) => URL.createObjectURL(file));
+    setPictures(newPictures);
+    setCurrentIndex(0); // 처음 사진으로 초기화
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : pictures.length - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex < pictures.length - 1 ? prevIndex + 1 : 0
+    );
+  };
 
   const getDetail = () => {
     axios
@@ -64,20 +86,48 @@ const DetailPage = () => {
         <DetailDiv>
           {editing ? (
             <>
+              {/* 작성자 정보 수정 */}
               <AuthorEdit
                 value={detail.author}
                 onChange={(e) =>
                   setDetail({ ...detail, author: e.target.value })
                 }
               />
+              {/* 시간 출력 */}
               <Time>{detail.timestamp}</Time>
+              {/* 사진 추가 및 미리보기 */}
+              <Container>
+                {pictures.length > 0 && (
+                  <ImagePreview>
+                    <SlideButton left onClick={handlePrev}>
+                      ‹
+                    </SlideButton>
+                    <Image src={pictures[currentIndex]} alt="Selected" />
+                    <SlideButton onClick={handleNext}>›</SlideButton>
+                  </ImagePreview>
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handlePictureChange}
+                />
+              </Container>
+              {/* 내용 수정 */}
               <CommentEdit
+                rows="10"
                 value={detail.comment}
                 onChange={(e) =>
                   setDetail({ ...detail, comment: e.target.value })
                 }
               />
               <BtnLine>
+                {" "}
+                {/* <ImageButton
+                  txt={"사진 추가하기"}
+                  fontSize={"20px"}
+                  onBtnClick={setSelectPicture}
+                /> */}
                 <Button
                   txt={"수정 저장하기"}
                   fontSize={"20px"}
@@ -167,7 +217,6 @@ const CommentEdit = styled.textarea`
   font-size: 30px;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.727);
-
   &:focus {
     outline: none; /* 포커스 시 outline 제거 */
   }
@@ -176,10 +225,46 @@ const CommentEdit = styled.textarea`
   font-weight: 700;
   margin: 50px 0;
   resize: vertical;
+  height: auto;
 `;
 const BtnLine = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0 20px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+`;
+
+const ImagePreview = styled.div`
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  max-height: 400px;
+  margin-bottom: 20px;
+  position: relative;
+`;
+
+const Image = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+`;
+
+const SlideButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  ${(props) => (props.left ? "left: 10px;" : "right: 10px;")}
 `;
