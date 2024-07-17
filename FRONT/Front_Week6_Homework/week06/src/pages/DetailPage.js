@@ -55,14 +55,20 @@ const DetailPage = () => {
 
   // 삭제 처리 함수
   const onDelete = () => {
-    axios
-      .delete(`http://127.0.0.1:8000/entries/${id}/`)
-      .then((response) => {
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const userConfirmed = window.confirm("이 항목을 삭제하시겠습니까?");
+
+    if (userConfirmed) {
+      axios
+        .delete(`http://127.0.0.1:8000/entries/${id}/`)
+        .then((response) => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      console.log("사용자가 삭제를 취소했습니다.");
+    }
   };
 
   // 수정 모드로 전환 처리 함수
@@ -102,6 +108,7 @@ const DetailPage = () => {
           {editing ? (
             <>
               {/* 작성자 정보 수정 */}
+              <InputTitle>이름</InputTitle>
               <AuthorEdit
                 value={detail.author}
                 onChange={(e) =>
@@ -109,9 +116,13 @@ const DetailPage = () => {
                 }
               />
               {/* 시간 출력 */}
+              <InputTitle>시간</InputTitle>
               <Time>{detail.timestamp}</Time>
               {/* 사진 추가 및 미리보기 */}
+
+              <InputTitle>사진</InputTitle>
               <Container>
+                <Label htmlFor="fileInput">사진 선택</Label>
                 {pictures.length > 0 && (
                   <ImagePreview>
                     <SlideButton left onClick={handlePrev}>
@@ -121,13 +132,15 @@ const DetailPage = () => {
                     <SlideButton onClick={handleNext}>›</SlideButton>
                   </ImagePreview>
                 )}
-                <input
+                <FileInput
                   type="file"
                   accept="image/*"
                   multiple
+                  id="fileInput"
                   onChange={handlePictureChange}
                 />
               </Container>
+              <InputTitle>내용</InputTitle>
               {/* 내용 수정 */}
               <CommentEdit
                 rows="10"
@@ -152,8 +165,23 @@ const DetailPage = () => {
             </>
           ) : (
             <>
+              {" "}
+              <InputTitle>이름</InputTitle>
               <Author>{detail.author}</Author>
+              <InputTitle>시간</InputTitle>
               <Time>{detail.timestamp}</Time>
+              <InputTitle>사진</InputTitle>
+              {pictures.length > 0 && (
+                <ImagePreview>
+                  <SlideButton left onClick={handlePrev}>
+                    ‹
+                  </SlideButton>
+                  <Image src={pictures[currentIndex]} alt="Selected" />
+                  <SlideButton onClick={handleNext}>›</SlideButton>
+                </ImagePreview>
+              )}
+              <br></br>
+              <InputTitle>내용</InputTitle>
               <Comment>{detail.comment}</Comment>
               <BtnLine>
                 <Button txt={"수정"} fontSize={"20px"} onBtnClick={onEdit} />
@@ -173,6 +201,13 @@ const DetailPage = () => {
 };
 
 export default DetailPage;
+
+const InputTitle = styled.div`
+  color: #f0873e;
+  margin: 13px 0;
+  font-size: 30px;
+  font-weight: 700;
+`;
 
 const Wrapper = styled.div`
   margin-top: 20px;
@@ -195,31 +230,46 @@ const DetailWrapper = styled.div`
 const DetailDiv = styled.div``;
 
 const Author = styled.div`
-  font-size: 30px;
-  font-weight: 700;
+  margin-bottom: 45px;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 8px;
+  border: 0;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
 `;
 
 const Time = styled.div`
+  margin-bottom: 30px;
   color: #c8c8c8;
   font-weight: 600;
   margin-top: 15px;
-  font-size: 15px;
+  font-size: 18px;
 `;
 
 const Comment = styled.div`
-  font-size: 20px;
-  font-weight: 700;
-  margin: 50px 0;
-`;
-
-const AuthorEdit = styled.input`
   padding: 10px;
   border: 0;
   border-radius: 30px;
   text-align: center;
-  font-size: 30px;
-  font-weight: 700;
-  box-shadow: 0 0 10px rgba(128, 128, 128, 0.727);
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 50px;
+  resize: vertical;
+  height: auto;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
+`;
+
+const AuthorEdit = styled.input`
+  margin-bottom: 45px;
+  font-size: 25px;
+  font-weight: 400;
+  padding: 8px;
+  border: 0;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
   &:focus {
     outline: none;
   }
@@ -231,10 +281,11 @@ const CommentEdit = styled.textarea`
   border-radius: 20px;
   text-align: center;
   font-size: 20px;
-  font-weight: 700;
-  margin: 50px 0;
+  font-weight: 400;
+  margin-bottom: 50px;
   resize: vertical;
   height: auto;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.727);
   &:focus {
     outline: none;
   }
@@ -257,10 +308,9 @@ const Container = styled.div`
 const ImagePreview = styled.div`
   display: flex;
   overflow: hidden;
-  width: 100%;
+  width: 70%;
   max-width: 600px;
   max-height: 400px;
-  margin-bottom: 20px;
   position: relative;
 `;
 
@@ -271,6 +321,8 @@ const Image = styled.img`
 `;
 
 const SlideButton = styled.button`
+  font-size: 30px;
+  border-radius: 30px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -279,5 +331,28 @@ const SlideButton = styled.button`
   border: none;
   padding: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #f0873e;
+  }
   ${(props) => (props.left ? "left: 10px;" : "right: 10px;")}
+`;
+const FileInput = styled.input`
+  display: none;
+`;
+
+const Label = styled.label`
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 30px;
+  padding: 15px 40px;
+  border: none;
+  background-color: #2a2a2a;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  &:hover {
+    background-color: #f0873e;
+  }
 `;
