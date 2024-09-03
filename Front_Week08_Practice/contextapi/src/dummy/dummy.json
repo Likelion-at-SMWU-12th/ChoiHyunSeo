@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "명탐정 코난: 100만 달러의 펜타그램",
+      "img": "https://image.cine21.com/resize/cine21/poster/2024/0717/17_16_47__66977def40476[X224,320].jpg",
+      "comment": "핫토리 헤이지, 네가 내 별이다"
+    },
+    {
+      "id": 2,
+      "title": "사랑의 하츄핑",
+      "img": "https://image.cine21.com/resize/cine21/poster/2024/0703/12_15_14__6684c2427649d[X230,330].jpg",
+      "comment": "멀리서도 너를 알아볼게, 믿음을 토양 삼은 우정"
+    },
+    {
+      "id": 3,
+      "title": "신비아파트 특별편: 붉은 눈의 사신",
+      "img": "https://image.cine21.com/resize/cine21/poster/2024/0802/15_35_30__66ac7e3251089[X230,330].jpg",
+      "comment": "위대한 한국 애니메이션 시리즈의 팬서비스 특별편"
+    }
+  ]
+}
