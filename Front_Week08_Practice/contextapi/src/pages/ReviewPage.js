@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReviewList from "../components/ReviewList";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import { useTheme } from "../contexts/ThemeContext";
 
 const ReviewPage = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   return (
     <>
       <Wrapper>
-        <h1>테마 : light</h1>
+        <h1>테마 : {theme}</h1>
 
         <button onClick={() => navigate("/create")}>작성하기</button>
         <ReviewList />
