@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { useTheme } from "../contexts/ThemeContext";
+import { themeStyle } from "../dict/dict";
 
 const ToggleBtn = () => {
   const { theme, toggleTheme } = useTheme();
   return (
-    <ToggleButton onClick={toggleTheme}>
+    <ToggleButton
+      onClick={toggleTheme}
+      bgColor={themeStyle[theme]["bgColor"]}
+      textColor={themeStyle[theme]["textColor"]}
+      borderColor={themeStyle[theme]["borderColor"]}
+    >
       {theme === "light" ? "light 🌝" : "dark 🌚"}
     </ToggleButton>
   );

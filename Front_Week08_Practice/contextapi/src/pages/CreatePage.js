@@ -1,12 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import { useTheme } from "../contexts/ThemeContext";
+import { themeStyle } from "../dict/dict";
 
 const CreatePage = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
 
   return (
-    <Wrapper>
+    <Wrapper
+      bgColor={themeStyle[theme]["bgColor"]}
+      textColor={themeStyle[theme]["textColor"]}
+    >
       <h1>리뷰 작성</h1>
       <h3>영화 포스터 이미지 선택</h3>
       <input type="file" />
