@@ -1,18 +1,18 @@
 import React from "react";
 import { styled } from "styled-components";
 import member from "../sookmut";
-import { usePart } from "../context/PartContext";
 
-const MemberList = () => {
-  const { part } = usePart();
+const MemberList = ({ part }) => {
   const memberlist = part
     ? member.filter((member) => member.part === part)
     : member;
 
   return (
     <List>
-      {memberlist.map((mem) => (
-        <Item>
+      {memberlist.map((mem, index) => (
+        <Item key={mem.id || index}>
+          {" "}
+          {/* Use mem.id if available, else fallback to index */}
           <div className="name">🦁 {mem.name}</div>
           <div className={mem.role === "아기사자" ? "baby" : "adult"}>
             {mem.role}
@@ -29,6 +29,7 @@ const List = styled.div`
   width: 100%;
   padding: 50px 100px;
 `;
+
 const Item = styled.div`
   display: flex;
   font-size: 20px;
@@ -36,6 +37,7 @@ const Item = styled.div`
   gap: 0 10px;
   margin-bottom: 10px;
   align-items: center;
+
   .baby {
     width: 60px;
     color: white;
@@ -46,6 +48,7 @@ const Item = styled.div`
     border-radius: 30px;
     text-align: center;
   }
+
   .adult {
     width: 60px;
     background-color: #ffe5c5;

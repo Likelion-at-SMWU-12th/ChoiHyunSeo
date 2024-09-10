@@ -21,8 +21,14 @@ export default Content;
 const Wrapper = styled.div`
   width: 100vw;
   height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   .content {
     display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
   }
 `;
