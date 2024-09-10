@@ -1,16 +1,18 @@
-import { useState } from "react";
+import React from "react";
 import Content from "./components/Content";
+import { PartProvider } from "./PartContext";
 import { styled } from "styled-components";
 
 function App() {
-  const [part, setPart] = useState("");
   return (
-    <Wrapper>
-      <div className="title">
-        숙명여대 멋쟁이사자처럼 <span>{part}</span> 파트 구성원
-      </div>
-      <Content part={part} setPart={setPart} />
-    </Wrapper>
+    <PartProvider>
+      <Wrapper>
+        <div className="title">
+          숙명여대 멋쟁이사자처럼 <span>파트</span> 구성원
+        </div>
+        <Content />
+      </Wrapper>
+    </PartProvider>
   );
 }
 

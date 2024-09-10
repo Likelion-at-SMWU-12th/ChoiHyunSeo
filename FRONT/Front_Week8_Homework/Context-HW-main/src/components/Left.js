@@ -1,7 +1,10 @@
 import React from "react";
+import { usePart } from "./PartContext";
 import styled from "styled-components";
 
-const Left = ({ setPart }) => {
+const Left = () => {
+  const { setPart } = usePart();
+
   return (
     <Wrapper>
       <button onClick={() => setPart("프론트엔드")}>프론트엔드</button>

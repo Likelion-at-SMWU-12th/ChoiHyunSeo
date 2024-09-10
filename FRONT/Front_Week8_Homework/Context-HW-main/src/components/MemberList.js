@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import member from "../sookmut";
 
 const MemberList = ({ part }) => {
@@ -10,7 +10,7 @@ const MemberList = ({ part }) => {
   return (
     <List>
       {memberlist.map((mem) => (
-        <Item>
+        <Item key={mem.name}>
           <div className="name">🦁 {mem.name}</div>
           <div className={mem.role === "아기사자" ? "baby" : "adult"}>
             {mem.role}
@@ -27,6 +27,7 @@ const List = styled.div`
   width: 100%;
   padding: 50px 100px;
 `;
+
 const Item = styled.div`
   display: flex;
   font-size: 20px;
