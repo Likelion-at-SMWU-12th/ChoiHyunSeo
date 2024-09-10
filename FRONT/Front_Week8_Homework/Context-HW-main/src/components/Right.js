@@ -1,6 +1,6 @@
 import React from "react";
 import MemberList from "./MemberList";
-import { usePart } from "./PartContext";
+import { usePart } from "../context/PartContext";
 import styled from "styled-components";
 
 const Right = () => {

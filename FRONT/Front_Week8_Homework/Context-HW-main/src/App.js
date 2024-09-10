@@ -1,6 +1,6 @@
 import React from "react";
 import Content from "./components/Content";
-import { PartProvider } from "./PartContext";
+import { PartProvider } from "./context/PartContext";
 import { styled } from "styled-components";
 
 function App() {

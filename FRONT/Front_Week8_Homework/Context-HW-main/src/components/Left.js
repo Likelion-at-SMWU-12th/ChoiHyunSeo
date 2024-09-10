@@ -1,5 +1,5 @@
 import React from "react";
-import { usePart } from "./PartContext";
+import { usePart } from "../context/PartContext";
 import styled from "styled-components";
 
 const Left = () => {
