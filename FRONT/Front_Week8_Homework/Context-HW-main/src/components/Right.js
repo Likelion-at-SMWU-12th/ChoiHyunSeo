@@ -8,7 +8,9 @@ const Right = () => {
 
   return (
     <Wrapper>
-      <MemberList part={part} />
+      <ContentWrapper>
+        <MemberList part={part} />
+      </ContentWrapper>
     </Wrapper>
   );
 };
@@ -16,7 +18,22 @@ const Right = () => {
 export default Right;
 
 const Wrapper = styled.div`
-  width: 100%;
+  flex: 1;
   height: 100%;
+  padding: 20px;
+  margin-left: 50px;
   overflow-y: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;

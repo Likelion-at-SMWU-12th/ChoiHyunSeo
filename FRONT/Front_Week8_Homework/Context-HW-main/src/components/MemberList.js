@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import member from "../sookmut";
 
 const MemberList = ({ part }) => {
@@ -9,8 +9,10 @@ const MemberList = ({ part }) => {
 
   return (
     <List>
-      {memberlist.map((mem) => (
-        <Item key={mem.name}>
+      {memberlist.map((mem, index) => (
+        <Item key={mem.id || index}>
+          {" "}
+          {/* Use mem.id if available, else fallback to index */}
           <div className="name">🦁 {mem.name}</div>
           <div className={mem.role === "아기사자" ? "baby" : "adult"}>
             {mem.role}
@@ -35,6 +37,7 @@ const Item = styled.div`
   gap: 0 10px;
   margin-bottom: 10px;
   align-items: center;
+
   .baby {
     width: 60px;
     color: white;
@@ -45,6 +48,7 @@ const Item = styled.div`
     border-radius: 30px;
     text-align: center;
   }
+
   .adult {
     width: 60px;
     background-color: #ffe5c5;

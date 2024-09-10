@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import Left from "./Left";
 import Right from "./Right";
+import { usePart } from "../context/PartContext";
 
 const Content = () => {
+  const { part, setPart } = usePart();
   return (
     <Wrapper>
       <div className="content">
-        <Left />
-        <Right />
+        <Left setPart={setPart} />
+        <Right part={part} />
       </div>
     </Wrapper>
   );
@@ -19,8 +21,14 @@ export default Content;
 const Wrapper = styled.div`
   width: 100vw;
   height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   .content {
     display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
   }
 `;
