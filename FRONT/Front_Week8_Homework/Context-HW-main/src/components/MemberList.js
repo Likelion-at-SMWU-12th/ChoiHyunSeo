@@ -1,8 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import member from "../sookmut";
+import { usePart } from "../context/PartContext";
 
-const MemberList = ({ part }) => {
+const MemberList = () => {
+  const { part } = usePart();
   const memberlist = part
     ? member.filter((member) => member.part === part)
     : member;
@@ -10,7 +12,7 @@ const MemberList = ({ part }) => {
   return (
     <List>
       {memberlist.map((mem) => (
-        <Item key={mem.name}>
+        <Item>
           <div className="name">🦁 {mem.name}</div>
           <div className={mem.role === "아기사자" ? "baby" : "adult"}>
             {mem.role}
@@ -27,7 +29,6 @@ const List = styled.div`
   width: 100%;
   padding: 50px 100px;
 `;
-
 const Item = styled.div`
   display: flex;
   font-size: 20px;

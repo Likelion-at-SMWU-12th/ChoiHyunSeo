@@ -1,11 +1,10 @@
 import React from "react";
+import { styled } from "styled-components";
 import MemberList from "./MemberList";
 import { usePart } from "../context/PartContext";
-import styled from "styled-components";
 
 const Right = () => {
   const { part } = usePart();
-
   return (
     <Wrapper>
       <MemberList part={part} />
