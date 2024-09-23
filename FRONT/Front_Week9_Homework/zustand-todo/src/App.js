@@ -1,34 +1,43 @@
 import "./App.css";
 import { useState } from "react";
-import TodoItem from "./TodoItem";
-import useTodoStore from "./store/store";
+import CartItem from "./CartItem";
+import useCartStore from "./store/store";
 
 function App() {
-  const [newTodo, setNewTodo] = useState("");
-  const todos = useTodoStore((state) => state.todos);
-  const addTodo = useTodoStore((state) => state.addTodo);
+  const [newProduct, setNewProduct] = useState("");
+  const [price, setPrice] = useState("");
+  const cartItems = useCartStore((state) => state.cartItems);
+  const addProduct = useCartStore((state) => state.addProduct);
 
-  const handleAddTodo = () => {
-    if (newTodo.trim()) {
-      addTodo(newTodo);
-      setNewTodo("");
+  const handleAddProduct = () => {
+    if (newProduct.trim() && price.trim()) {
+      addProduct(newProduct, parseFloat(price));
+      setNewProduct("");
+      setPrice("");
     }
   };
+
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1>현서는 뭘 사고 싶을까요?</h1>
       <div>
         <input
           type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="할 일을 추가해보세요."
+          value={newProduct}
+          onChange={(e) => setNewProduct(e.target.value)}
+          placeholder="상품 이름을 입력하세요."
         />
-        <button onClick={handleAddTodo}>Add Todo</button>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          placeholder="가격을 입력하세요."
+        />
+        <button onClick={handleAddProduct}>상품 추가</button>
       </div>
       <ul>
-        {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
+        {cartItems.map((item) => (
+          <CartItem key={item.id} item={item} />
         ))}
       </ul>
     </div>
