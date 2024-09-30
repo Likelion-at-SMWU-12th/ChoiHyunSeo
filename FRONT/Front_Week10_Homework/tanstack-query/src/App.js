@@ -23,6 +23,8 @@ function App() {
   });
   console.log("postsData", postsData);
 
+  // postsData가 null이거나 undefined일 경우 빈 배열 [] 할당
+  // ?? : 널 병합 연산자
   const posts = postsData ?? [];
 
   return (
