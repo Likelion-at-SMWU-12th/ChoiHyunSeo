@@ -55,6 +55,7 @@ export const useDeleteUser = (userId) => {
     cacheTime: 300000,
     onSuccess: () => {
       alert("사용자 정보가 성공적으로 삭제되었습니다.");
+      // 쿼리를 무효화하는 역할 - 최신 상태 융지
       queryClient.invalidateQueries({ queryKey: ["mypage"] });
     },
   });
