@@ -13,9 +13,27 @@ function App() {
 
   // queryKey : 쿼리를 식별하는 고유키 → [“posts”]
   // queryFn : 서버나 API에 요청하는 함수 → getPosts
-  const queryResult = useQuery({ queryKey: ["post"], queryFn: getPosts });
-  console.log("queryResult", queryResult);
-  return <div>tanstack query 실습하기</div>;
+  // const queryResult = useQuery({ queryKey: ["post"], queryFn: getPosts });
+  // console.log("queryResult", queryResult);
+  // return <div>tanstack query 실습하기</div>;
+
+  const { data: postsData } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPosts,
+  });
+  console.log("postsData", postsData);
+
+  const posts = postsData ?? [];
+
+  return (
+    <div>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
