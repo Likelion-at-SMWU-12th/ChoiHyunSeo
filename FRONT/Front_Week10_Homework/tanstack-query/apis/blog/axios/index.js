@@ -12,7 +12,7 @@ import axios from "axios";
 //   });
 // };
 
-export const createPost = async (postId) => {
+export const deletePost = async (postId) => {
   const { data } = await axios.post(`/api/posts/${postId}`);
   return data;
 };
