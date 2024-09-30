@@ -1,32 +1,16 @@
-import { useMutation } from "react-query";
-import { createPost } from "../axios/index";
-import { useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
-// export const useUpdatePost = () => {
-//   return useMutation({
-//     mutationFn: ({ postId, title, content }) =>
-//       createPost(postId, title, content),
-//   });
-// };
+import { signUp } from "../axios/index";
+import { updateProfile } from "../axios/index";
+import { mypageFetch } from "../axios/index";
+import { deleteUser } from "../axios/index";
 
-// export const useGetPost = (postId) => {
-//   return useQuery({
-//     queryKey: ["post", postId],
-//     queryFn: () => getPost(postId),
-//     enabled: !!postId,
-//     staleTiem: 10000,
-//     cacheTime: 60000,
-//   });
-// };
-
-export const useDeletePost = () => {
-  const queryClient = useQueryClient();
-
+export const useSignUp = (username, password) => {
   return useMutation({
-    mutationFn: postId,
+    mutationFn: ({ username, password }) => signUp(username, password),
+    enabled: !!username && !!password,
     onSuccess: () => {
-      alert("게시글 삭제");
-      queryClient.invalidateQueries("postList");
+      alert("환영합니다");
     },
   });
 };
