@@ -16,12 +16,14 @@ export const updateProfile = async (userId, updatedInfo) => {
 
 // 3. 마이페이지 조회
 export const mypageFetch = async (userId) => {
+  // userId를 받아서 GET 요청을 보냄
   const { data } = await axios.get(`api/mypage/${userId}`);
   return data;
 };
 
 // 4. 회원 정보 삭제
 export const deleteUser = async (userId) => {
+  // userId를 받아서 DELETE 요청을 보냄
   const { data } = await axios.delete(`api/users/quit/${userId}`);
   return data;
 };
