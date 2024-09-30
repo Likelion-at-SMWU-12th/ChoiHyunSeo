@@ -13,3 +13,15 @@ export const updateProfile = async (userId, updatedInfo) => {
   const { data } = await axios.post(`api/users/profile/${userId}`, updatedInfo);
   return data;
 };
+
+// 3. 마이페이지 조회
+export const mypageFetch = async (userId) => {
+  const { data } = await axios.get(`api/mypage/${userId}`);
+  return data;
+};
+
+// 4. 회원 정보 삭제
+export const deleteUser = async (userId) => {
+  const { data } = await axios.delete(`api/users/quit/${userId}`);
+  return data;
+};

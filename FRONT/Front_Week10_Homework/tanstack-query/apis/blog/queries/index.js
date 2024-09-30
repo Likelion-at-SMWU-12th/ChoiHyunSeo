@@ -24,7 +24,7 @@ export const useUpdateProfile = (userId) => {
     mutationFn: ({ userId, updatedInfo }) => updateProfile(userId, updatedInfo),
     enabled: !!userId,
     onSuccess: () => {
-      alert("개인 정보가 수정되었습니다");
+      alert("개인정보가 수정되었습니다.");
 
       // invalidateQueries를 사용하여 쿼리 다시 가져오기
       queryClient.invalidateQueries({ queryKey: ["mypage"] });
@@ -38,7 +38,24 @@ export const useMyPageFetch = (userId) => {
     queryKey: ["mypage", userId],
     queryFn: () => mypageFetch(userId),
     enabled: !!userId,
+    // 30초 - stale 상태 유지
     staleTime: 30000,
+    // 5분 - cacheTime 상태 유지
     cacheTime: 300000,
+  });
+};
+
+// 4. 회원 정보 삭제
+export const useDeleteUser = (userId) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ userId }) => deleteUser(userId),
+    enabled: !!userId,
+    // 5분 - cacheTime 상태 유지
+    cacheTime: 300000,
+    onSuccess: () => {
+      alert("사용자 정보가 성공적으로 삭제되었습니다.");
+      queryClient.invalidateQueries({ queryKey: ["mypage"] });
+    },
   });
 };
