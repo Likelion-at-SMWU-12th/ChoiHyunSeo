@@ -31,3 +31,14 @@ export const useUpdateProfile = (userId) => {
     },
   });
 };
+
+// 3. 마이페이지 조회
+export const useMyPageFetch = (userId) => {
+  return useQuery({
+    queryKey: ["mypage", userId],
+    queryFn: () => mypageFetch(userId),
+    enabled: !!userId,
+    staleTime: 30000,
+    cacheTime: 300000,
+  });
+};
