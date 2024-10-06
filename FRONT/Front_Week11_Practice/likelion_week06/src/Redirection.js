@@ -12,6 +12,12 @@ const Redirection = () => {
       `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${process.env.REACT_APP_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&code=${authCode}`,
       {
         method: "POST",
+        // body: JSON.stringify({
+        //   grant_type: "authorization_code",
+        //   client_id: process.env.REACT_APP_REST_API_KEY,
+        //   redirect_uri: process.env.REACT_APP_REDIRECT_URI,
+        //   code: authCode,
+        // }),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
