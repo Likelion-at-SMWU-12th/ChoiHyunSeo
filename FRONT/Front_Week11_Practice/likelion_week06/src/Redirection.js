@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Redirection = () => {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const authCode = params.get("code");
   const grant_type = "authorization_code";
   const navigate = useNavigate();
