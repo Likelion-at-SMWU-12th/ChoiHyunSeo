@@ -14,6 +14,7 @@ const Greeting = () => {
     }).then((res) => {
       const userData = res.json();
       userData.then((user) => {
+        // 로그인에 성공하면 사용자 데이터를 불러와서 화면에 뿌림
         setName(user.properties.nickname);
         setProfileImg(user.properties.profile_image);
       });
@@ -23,6 +24,7 @@ const Greeting = () => {
     <div>
       <div
         className="profile-image-div"
+        // 이미지 파일의 경우, 변수로 받와서 사용
         style={{ backgroundImage: `url(${profileImg})` }}
       ></div>
       <h2>{name}</h2>
